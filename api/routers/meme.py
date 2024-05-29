@@ -25,8 +25,6 @@ FILE_PATH = "static/memes"
 @router.post("/meme/create", response_model=MemeData, dependencies=[Depends(JWTBearer())])
 async def create_meme(
     meme_file: UploadFile = File(...),
-    top_text: Optional[str] = Form(None),
-    bottom_text: Optional[str] = Form(None),
     user: User = Depends(get_current_user),
     db: AsyncIOMotorDatabase = Depends(connect_to_mongo)
 ):
@@ -41,8 +39,6 @@ async def create_meme(
         f.write(content)
 
     meme_data = {
-        "top_text": top_text,
-        "bottom_text": bottom_text,
         "meme_link": upload_file(file_path),
         "created_by": str(user.email),
         "created_at": datetime.now(),
@@ -55,8 +51,6 @@ async def create_meme(
         return MemeData(
             id=str(result.inserted_id),
             meme_link=meme_data["meme_link"],
-            top_text=meme_data["top_text"],
-            bottom_text=meme_data["bottom_text"],
             created_by=meme_data["created_by"],
             created_at=meme_data["created_at"],
             updated_at=meme_data["updated_at"]
@@ -65,7 +59,7 @@ async def create_meme(
     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                         detail="Erreur lors de l'enregistrement")
 
-
+"""
 @router.put("/meme/edit/{meme_id}", response_model=dict, dependencies=[Depends(JWTBearer())])
 async def edit_meme(
     meme_id: str,
@@ -99,7 +93,7 @@ async def edit_meme(
 
     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                         detail="Une erreur s'est produite lors de la mise à jour.")
-
+"""
 
 @router.get("/memes/all", response_model=list[MemeData], dependencies=[Depends(JWTBearer())])
 async def get_all_memes(
@@ -123,8 +117,6 @@ async def get_all_memes(
         MemeData(
             id=str(ObjectId(meme["_id"])),
             meme_link=meme["meme_link"],
-            top_text=meme["top_text"],
-            bottom_text=meme["bottom_text"],
             created_by=meme["created_by"],
             created_at=meme["created_at"],
             updated_at=meme["updated_at"]
@@ -153,8 +145,6 @@ async def get_meme_detail(
     formatted_data = MemeData(
         id=str(ObjectId(meme["_id"])),
         meme_link=meme["meme_link"],
-        top_text=meme["top_text"],
-        bottom_text=meme["bottom_text"],
         created_by=meme["created_by"],
         created_at=meme["created_at"],
         updated_at=meme["updated_at"]

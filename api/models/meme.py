@@ -4,21 +4,16 @@ from datetime import datetime
 
 class MemeCreate(BaseModel):
     meme_link: str
-    top_text: Optional[str]
-    bottom_text: Optional[str]
     created_by: str
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
 
 class MemeEdit(BaseModel):
-    top_text: Optional[str]
-    bottom_text: Optional[str]
+    meme_link: str
 
 class MemeData(BaseModel):
     id: str
     meme_link: str
-    top_text: Optional[str]
-    bottom_text: Optional[str]
     created_by: str
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
