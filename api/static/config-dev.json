@@ -1,0 +1,19 @@
+{
+  "SHORT_BASE_URL": "http://localhost:8000",
+  "SERVER_HOST": "localhost",
+  "DB_NAME": "memegen",
+  "DB_PROD_LINK": "mongodb+srv://Naud:arnaud2210@study-reports-collectio.hxxmypm.mongodb.net/",
+  "DB_PORT": "27017",
+  "DB_LINK": "localhost",
+  "SECRET_KEY": "sFe:spjQeZnjr",
+  "ALGORITHM": "HS256",
+  "ENVIRONMENT": "development",
+  "API_PORT": 8000,
+  "SMTP_FROM": "adjimonarnaud@gmail.com",
+  "SMTP_PASSWORD": "vtkkryanlmogaseq",
+  "SMTP_PORT": 587,
+  "SMTP_SERVER": "smtp.gmail.com",
+  "SMTP_USERNAME": "adjimonarnaud@gmail.com",
+  "bucket_creds": "utils/services/mbuckets-a6fe3-685e26c8f1a2.json",
+  "storage_bucket": "mbuckets-a6fe3.appspot.com"
+}
