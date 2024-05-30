@@ -40,7 +40,7 @@ async def create_meme(
 
     meme_data = {
         "meme_link": upload_file(file_path),
-        "created_by": str(user.email),
+        "created_by": str(user.username),
         "created_at": datetime.now(),
         "updated_at": None
     }
@@ -125,6 +125,36 @@ async def get_all_memes(
     ]
 
     return formatted_data
+
+@router.get("/memes/public", response_model=list[MemeData])
+async def get_public_memes(
+    start: int,
+    end: int,
+    db: AsyncIOMotorDatabase = Depends(connect_to_mongo)
+):
+
+    collection: AsyncIOMotorCollection = db["memes"]
+
+    if start < 0 or end < 0:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail="start ou end doivent être positifs")
+
+    memes = await collection.find().sort("created_at", DESCENDING
+                                         ).skip(start).limit(end).to_list(length=None)
+
+    formatted_data = [
+        MemeData(
+            id=str(ObjectId(meme["_id"])),
+            meme_link=meme["meme_link"],
+            created_by=meme["created_by"],
+            created_at=meme["created_at"],
+            updated_at=meme["updated_at"]
+        )
+        for meme in memes
+    ]
+
+    return formatted_data
+
 
 
 @router.get("/meme/{meme_id}", response_model=MemeData, dependencies=[Depends(JWTBearer())])
