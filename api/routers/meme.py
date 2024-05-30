@@ -109,7 +109,7 @@ async def get_all_memes(
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail="start ou end doivent être positifs")
 
-    memes = await collection.find({"created_by": user.email}
+    memes = await collection.find({"created_by": user.username}
                                   ).sort("created_at", DESCENDING
                                          ).skip(start).limit(end).to_list(length=None)
 
