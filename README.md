@@ -64,7 +64,7 @@ En local:
 fastapi dev main.py
 ```
 
-Connectez vous sur ce lien: [text](http://127.0.0.1:8000/docs)
+Connectez vous sur ce lien: [http://localhost:5173/](http://127.0.0.1:8000/docs)
 
 En production:
 
@@ -102,7 +102,7 @@ Déplacez vous dans le répertoire api:
 npm run dev
 ```
 
-Connectez vous sur ce lien: [text](http://localhost:5173/)
+Connectez vous sur ce lien: [http://localhost:5173/](http://localhost:5173/)
 
 ## Quelques captures
 
