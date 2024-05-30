@@ -42,3 +42,18 @@ export const createMyMeme = async (meme: MemeRequest, setLoading: any, navigate:
         setLoading(false);
     }
 }
+
+export const deleteMyMeme = async (id: string, setLoading: any) => {
+    try {
+        setLoading(true);
+
+        await client.delete(`meme/${id}`)
+
+        toast.success('Meme delete successfully !');
+
+        setLoading(false);
+    } catch (error: any) {
+        toast.error(error.response.data.detail);
+        setLoading(false);
+    }
+}

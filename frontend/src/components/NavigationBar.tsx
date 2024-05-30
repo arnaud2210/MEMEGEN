@@ -8,14 +8,14 @@ export default function NavigationBar({ navigationBarMainClassName, liClassName,
                     <Link to={'/memes'} reloadDocument={false} onClick={() => {
                         setIsHome(!isHome)
                     }}>
-                        <Underline text='Home' isHome={isHome} className={underlineClassName} />
+                        <Underline text='Accueil' isHome={isHome} className={underlineClassName} />
                     </Link>
                 </li>
                 <li className={liClassName}>
                     <Link to={'/creations'} reloadDocument={false} onClick={() => {
                         setIsHome(!isHome)
                     }}>
-                        <Underline text='Gallery' isHome={!isHome} className={underlineClassName} />
+                        <Underline text='Galerie' isHome={!isHome} className={underlineClassName} />
                     </Link>
                 </li>
             </ul>

@@ -44,7 +44,7 @@ export default function Login({ mainClassName, cardClassName, logoMainClassName,
                             <span className="text-blue-600 hover:text-blue-700 text-sm">Mot de passe oublié?</span>
                         </Link>
                         <p>{passwordInput.trim() == '' || usernameInput.trim() == ''}</p>
-                        <button disabled={passwordInput.trim() == '' || usernameInput.trim() == ''} onClick={fetch} className="w-full cursor-pointer bg-gray-700 hover:bg-gray-600 h-10 text-white" type="button">
+                        <button disabled={passwordInput.trim() == '' || usernameInput.trim() == ''} onClick={fetch} className="w-full cursor-pointer bg-gray-700 hover:bg-gray-800 h-10 text-white" type="button">
                             {
                                 isLoading ? (
                                     <div className="w-full flex items-center justify-center" role="status">

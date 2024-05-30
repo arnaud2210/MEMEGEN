@@ -192,7 +192,7 @@ async def delete_meme(
 
     collection: AsyncIOMotorCollection = db["memes"]
 
-    meme = await collection.find_one({"_id": ObjectId(meme_id), "created_by": user.email})
+    meme = await collection.find_one({"_id": ObjectId(meme_id), "created_by": user.username})
 
     if not meme:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,

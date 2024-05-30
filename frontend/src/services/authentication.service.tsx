@@ -9,7 +9,7 @@ const client: AxiosInstance = axios.create({
 
 client.interceptors.request.use(
     (config: any) => {
-        if (config.url.includes('memes/all') || config.url.includes('meme/create')) {
+        if (config.url.includes('memes/all') || config.url.includes('meme/create') || config.url.includes('meme/')) {
             const token = getToken();
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`;
@@ -60,6 +60,12 @@ export const register = async (registerRequest: RegisterRequest, navigate: any, 
 }
 
 export const getToken = () => sessionStorage.getItem(import.meta.env.VITE_SESSION_NAME)
+
+export const logout = (navigate: any) => {
+    sessionStorage.removeItem(import.meta.env.VITE_SESSION_NAME)
+    toast.success('Vous vous êtes déconnecté')
+    navigate('/authentication/login')
+}
 
 const saveToken = (token: string) => {
     sessionStorage.setItem(import.meta.env.VITE_SESSION_NAME, token)

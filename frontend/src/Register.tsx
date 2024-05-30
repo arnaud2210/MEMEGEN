@@ -57,7 +57,7 @@ export default function Register({ mainClassName, cardClassName, logoMainClassNa
                         <input onChange={handleOnEmailChanged} className="w-full border mb-2 h-10 px-5" type="email" placeholder="email@example.com" name="" id="" />
                         <input onChange={handleOnUsernameChanged} className="w-full border mb-2 h-10 px-5" type="text" placeholder="Username" name="" id="" />
                         <input onChange={handleOnPasswordChanged} className="w-full border mb-5 h-10 px-5" type="password" placeholder="*****" name="" id="" />
-                        <button disabled={passwordInput.trim() == '' || usernameInput.trim() == '' || emailInput.trim() == '' || fullnameInput.trim() == ''} onClick={fetch} className="w-full bg-gray-700 hover:bg-gray-600 h-10 text-white" type="button">
+                        <button disabled={passwordInput.trim() == '' || usernameInput.trim() == '' || emailInput.trim() == '' || fullnameInput.trim() == ''} onClick={fetch} className="w-full bg-gray-700 hover:bg-gray-800 h-10 text-white" type="button">
                             {
                                 isLoading ? (
                                     <div className="w-full flex items-center justify-center" role="status">

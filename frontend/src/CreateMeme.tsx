@@ -178,7 +178,7 @@ export default function CreateMeme({ mainClassName, cardClassName }: { mainClass
                                     selectedTextIndex != null && image != null ? (
                                         <input className="border w-full h-10 px-2 my-2 text-sm rounded-sm" type="text" value={texts[selectedTextIndex].text} onChange={handleTextChange} name="" id="" />
                                     ) : (
-                                        <input className="border w-full h-10 px-2 my-2 text-sm rounded-sm" placeholder="No text" type="text" disabled={true} name="" id="" />
+                                        <input className="border w-full h-10 px-2 my-2 text-sm rounded-sm" placeholder="Aucun texte" type="text" disabled={true} name="" id="" />
                                     )
                                 }
                                 <button className="text-white h-10 bg-gray-700 hover:bg-gray-800 px-4 ml-2 rounded-sm" onClick={handleAddText}>+</button>
@@ -187,7 +187,7 @@ export default function CreateMeme({ mainClassName, cardClassName }: { mainClass
                         </div>
                         <div className="w-full my-2">
                             <button disabled={selectedTextIndex == null && image == null} className="bg-gray-700 hover:bg-gray-800 w-full py-2 rounded-sm text-white" onClick={() => setShowColorPicker(!showColorPicker)}>
-                                Pick Text Color
+                                Choisir la couleur du texte
                             </button>
                             {showColorPicker && (
                                 <div style={{ position: 'absolute', zIndex: 2, marginTop: 5 }}>
@@ -219,7 +219,7 @@ export default function CreateMeme({ mainClassName, cardClassName }: { mainClass
                                             </svg>
                                             <span className="sr-only">Loading...</span>
                                         </div>
-                                    ) : ('Save meme')
+                                    ) : ('Enregistrer')
                                 }
                             </button>
                         </div>
