@@ -96,8 +96,6 @@ npm install
 
 Lancer le serveur web avec:
 
-Déplacez vous dans le répertoire api:
-
 ```bash
 npm run dev
 ```
